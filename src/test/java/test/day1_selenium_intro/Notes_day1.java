@@ -3,7 +3,7 @@ package test.day1_selenium_intro;
 public class Notes_day1 {
     /*
 JUN 2, TUESDAY
-
+//Kamuran
 HTML -->
 - Hypertext markup language
 - It a MARK UP language.
