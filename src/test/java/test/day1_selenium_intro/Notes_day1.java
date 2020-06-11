@@ -4,6 +4,7 @@ public class Notes_day1 {
     /*
 JUN 2, TUESDAY
 //Kamuran
+// Guler
 HTML -->
 - Hypertext markup language
 - It a MARK UP language.
