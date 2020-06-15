@@ -16,8 +16,8 @@ public class T1_Cybertek_ForgotPassword_Xpath {
         //3. Locate all the WebElements on the page using XPATH locator only (total of 6)
         //a. “Home” link
         //tagName[@attribute='value']
-        //a[@class='nav-link']
-        //a[@href='/']
+        //1-a[@class='nav-link']
+        //2-a[@href='/']
         //tagName[.='text']
         //a[.='Home']
         WebElement homeLink = driver.findElement(By.xpath("//a[.='Home']"));
