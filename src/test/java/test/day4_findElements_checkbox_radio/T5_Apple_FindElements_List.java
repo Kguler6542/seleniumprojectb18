@@ -23,9 +23,9 @@ public class T5_Apple_FindElements_List {
         int linksWithText = 0;
 
         Thread.sleep(500);
+
         //3. Click to all of the headers one by one
         //a. Mac, iPad, iPhone, Watch, TV, Music, Support
-
         //Creating List of WebElements to store all the links in the header list.
         List<WebElement> appleHeader = driver.findElements(By.xpath("//ul[@class='ac-gn-list']/li/a"));
 
@@ -35,6 +35,7 @@ public class T5_Apple_FindElements_List {
             appleHeader.get(i).click();
             Thread.sleep(1000);
             List<WebElement> listOfLinks = driver.findElements(By.xpath("//body//a"));
+
             //4. Print out how many links on each page with the titles of the pages
             System.out.println("Number of links on page: " + driver.getTitle() + " " + listOfLinks.size());
             //texts of links
