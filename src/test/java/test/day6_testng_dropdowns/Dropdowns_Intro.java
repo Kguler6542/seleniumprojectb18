@@ -98,6 +98,53 @@ public class Dropdowns_Intro {
         Assert.assertTrue(actualSelectedOption.equals(expectedOption));
 
         //Use all Select options. (visible text, value, index)
+
     }
+
+
+     @Test
+     public void test3_selecting_date_test(){
+         //TC #3: Selecting date on dropdown and verifying
+         // 1.Open Chrome browser
+         // 2.Go to http://practice.cybertekschool.com/dropdown
+         // 3.Select “December 1st, 1921” and verify it is selected.
+         // Select year using: visible text Select
+         // month using : value attribute Select
+         // day using: index number
+
+         Select yearDropdown = new Select(driver.findElement(By.xpath("//select[@id='year']")));
+         Select monthDropdown = new Select(driver.findElement(By.xpath("//select[@id='month']")));
+         Select dayDropdown = new Select(driver.findElement(By.xpath("//select[@id='day']")));
+
+         // Select year using: visible textSelect
+         yearDropdown.selectByVisibleText("1921");
+
+         // month using : value attributeSelect
+         monthDropdown.selectByValue("11");
+
+         // day using: index number
+         dayDropdown.selectByIndex(0);
+
+    // Expected Value
+         String expectedYear = "1921";
+         String expectedMonth = "December";
+         String expectedDay= "1";
+
+
+         //Getting actual values
+         String actualYear = yearDropdown.getFirstSelectedOption().getText();
+         String actualMonth = monthDropdown.getFirstSelectedOption().getText();
+         String actualDay = dayDropdown.getFirstSelectedOption().getText();
+
+
+         //Assertions of actual vs expected
+         Assert.assertEquals(expectedYear, actualYear);
+         Assert.assertEquals(actualMonth, expectedMonth);
+
+
+
+     }
+
+
 
 }
