@@ -2,62 +2,85 @@ package test.day10_jsexecutor_upload_actions;
 
 public class Class_Notes {
     /*
-/*
-JULY 2ND, THURSDAY, TGIT
-Today:
--> Finishing Driver class
--> JavaScriptExecutor
--> How to upload using Selenium
--> Actions class
---> Headless browser: The only difference between regular chrome, firefox and chrome-headless, firefox-headless is: headless ones does not open visually.
---> JavaScriptExecutor :
-	-> is just an interface with 2 methods.
-	-> This interface allows us to execute JavaScript code in our Selenium code.
-	-> We pass the javascript scripts as strings into the methods we call from JavaScriptExecutor.
-	-> If we are using WebDriver interface reference, we must cast our driver type to JavaScriptExecutor.
-	SYNTAX OF HOW TO USE JavaScriptExecutor:
-	1- We create javascriptExecutor object and we cast our WebDriver type instance into JavascriptExecutor type.
-    JavascriptExecutor javascriptExecutor = (JavascriptExecutor)Driver.getDriver();
-    2- Then we have access to the methods that are coming from JavascriptExecutor interface.
-	javascriptExecutor.executeScript("arguments[0].scrollIntoView(	true);", cybertekSchoolLink);
-What is executeScript method?
-	-> Method coming from JavascriptExecutor, allows us to apply actual javascript code in our selenium code.
-	-> This method expects 2 arguments.
-	-> First arg: String. We pass JS code in a string
-	-> Second arg: We can pass OBJ Type if we want to do specific action on something specific
-How many ways you know to scroll in Selenium?
-	1- Using JSExecutor
-============================
-HOW DO YOU DOWNLOAD AND VERIFY USING SELENIUM?
- 	-> YOU DONT.
- 	-> Selenium can click to a link to download some files.
- 	-> BUT Selenium CAN NOT verify that a file has been downloaded into your computer.
- 	-> Selenium only works in browsers/HTML code. Folder directory of your computer is OUT OF SCOPE for Selenium.
-============================
-HOW TO HANDLE UPLOADS USING SELENIUM?
--> We locate upload webelement
--> We sendKeys of the file path
--> Then we click upload
- chooseFile.sendKeys("/Users/cybertekchicago-1/Desktop/test");
-==================================================
-ACTIONS
-	Actions selenium documentation:
-	https://www.selenium.dev/selenium/docs/api/java/org/openqa/selenium/interactions/Actions.html
-	-> Is a class coming from SELENIUM
-	-> Allows us to handle advanced mouse and keyboard actions
-	-> Actions class can do:
-		-> hover over
-		-> double click
-		-> context click (right click)
-		-> drag and drop
-		-> keydown : to simulate that pressing a key and holding it down
-	TO USE :
-	-> 1- We need to create an object of the ACTIONS class
-	-> 2- We need to pass the current driver instance into the constructor
-	Actions actions = new Actions(Driver.getDriver());
-	-> 3- Then we can use any method using "actions" instance that we created
-	actions.methodname.build().perform();
-	-> you can chain lots of methods using actions.
-	actions.moveTo(element).clickAndHold().moveTo(somewhereelse).perform();
- */
+JULY 6TH, MONDAY-FUNDAY
+TODAY'S SCHEDULE
+-Recap about last class
+-Solve tasks
+-Page object model design pattern
+-PracticeS
+===========================================================================
+HOW DO YOU HANDLE DOWNLOADS WITH SELENIUM?
+    -> WE DON'T/CAN'T.
+    -> Selenium cannot handle downloads except for the clicking the link part.
+    -> Since selenium can only work with browsers, and the file is downloaded to the computer file directory, we cannot verify a download using selenium.
+HOW DO WE HANDLE UPLOADS WITH SELENIUM?
+    -> We can upload files using selenium by sending the path of the file into the upload web element.
+    syntax: uploadWebElement.sendKeys("path of the file");
+===========================
+JAVASCRIPTEXECUTOR:
+    -> WHAT IS JAVASCRIPTEXECUTOR?
+        - Just an interface with two methods.
+    -> What can we do with these methods?
+        - JavaScriptExecutor allows us to execute/inject javascript code into our java/selenium code.
+    -> When do we need this?
+        - Whenever selenium is not capable of some of the actions we need to do, such as scrolling down.
+=================
+ACTIONS:
+    -> WHY DO WE NEED ACTIONS CLASS? WHAT DOES IT DO?
+    -> Actions class allows us to handle complex/advanced mouse and keyboard actions. Such as:
+        -> hover over : moveToElement
+        -> right click: contextClick
+        -> dragAndDrop: allows us to drag and drop a web element
+        -> clickAndHold: clicks onto something and waits for next command
+        -> release :
+    How do we use Actions methods?
+        1- To be able to use any Actions method, we need to create the instance of the actions class.
+        2- Then we need to pass the current driver instance into the constructor.
+        3- We must use : perform() method at the end to be able to perform any actions method.
+====================================================
+How many ways to scroll down?
+    1- Using JavaScriptExecutor
+    2- Using Actions moveToElement method.
+====================================================
+WHAT TOOLS WE ARE USING IN OUR FRAMEWORK SO FAR
+    -> Java
+    -> Selenium
+    -> TestNg
+    -> Faker faker new faker
+    -> WebDriverManager (boni garcia)
+What does our folder structure look like?
+    - seleniumprojectb18
+        - src
+            - test
+                - java
+                    - test --> this is where we keep our tests
+                    - utilities --> this is where we keep our utils
+                    -
+        - configuration.properties
+        - pom.xml
+-> WHAT DESIGN PATTERN WE USED SO FAR?
+    -> We used Singleton Design Pattern
+    -> We created Driver utilities using Singleton Design Pattern.
+-> How did we achieve singleton?
+    -> We created private constructor, and created a method to return the instance of that class. (WebDriver)
+    - A design pattern is not a framework. It is just the part of a framework.
+    - Usually just another layer in our framework to make "something" easy to handle for ourselves.
+    - The framework: is the overall folder structure, design patterns, utilities, and how all of this implemented and working together.
+What is page object model design pattern:
+    -> Page object model is creating JAVA classes for the each page of the web application.
+    -> We will store web elements and methods related to that PAGE into its own JAVA CLASS.
+TWO THINGS TO KEEP IN MIND WHEN CREATING PAGE OBJECT MODEL DESIGN:
+    1- Everytime you create a new class, you need to pass the line below into the constructor:
+        PageFactory.initElements(driver, this);
+    PageFactory --> is coming from selenium library
+    What does this line do?
+        - It creates connection in between our driver, and the object of the current class.
+    2- @FindBy annotation to locate webElements.
+        -> FindBy annotation also comes from Selenium library.
+        -> Using this FindBy annotation, we can use any 1 of 8 locators of selenium to locate web elements.
+What are the advantages Page Object Model?
+    1-> Re-usability : we are creating one locater for each webElement and keep reusing the same object
+    2-> Easy to maintain : since we are creating and locating each web element only once in its own related class, when we have issue with that web element we only go fix it in one place.
+    3-> Easy to manage : we are managing all web elements of the relevant page from its own JAVA CLASS
+*/
 }
