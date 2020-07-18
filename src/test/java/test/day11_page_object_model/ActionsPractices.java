@@ -15,7 +15,6 @@ public class ActionsPractices {
     @Test
     public void scrolling_with_actions() throws InterruptedException{
         //get our page
-        Driver.getDriver().get("http://practice.cybertekschool.com/");
 
         //creating actions instance to be able to use its methods
         actions = new Actions(Driver.getDriver());
